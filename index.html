@@ -5,15 +5,45 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>ChouGame – Optimisation Windows</title>
 
+<!-- FONT AWESOME ICONS -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
 
+/* ================= BASE ================= */
 body{
   font-family:'Segoe UI',Arial,sans-serif;
   background:linear-gradient(to bottom,#fff8f0,#f8fafc);
   color:#0f172a;
   transition:.4s;
   overflow-x:hidden;
+}
+
+/* ================= SCROLL ANIMATION ================= */
+.reveal{
+  opacity:0;
+  transform:translateY(40px);
+  transition:1s ease;
+}
+.reveal.active{
+  opacity:1;
+  transform:translateY(0);
+}
+
+/* ================= LOGO GLOW ================= */
+.logo-img,
+.mobile-logo img{
+  filter:drop-shadow(0 0 22px rgba(255,182,193,.8));
+  transition:.3s;
+}
+.logo-img:hover{
+  transform:scale(1.05);
+  filter:drop-shadow(0 0 35px rgba(255,182,193,1));
+}
+body.dark .logo-img,
+body.dark .mobile-logo img{
+  filter:drop-shadow(0 0 30px rgba(255,105,180,.9));
 }
 
 /* ================= DESKTOP NAV ================= */
@@ -29,14 +59,6 @@ nav{
   gap:15px;
   box-shadow:0 2px 10px rgba(0,0,0,.05);
 }
-
-.logo-img{
-  height:70px;
-  transition:.3s;
-}
-.logo-img:hover{transform:scale(1.05)}
-body.dark .logo-img{filter:brightness(1.2)}
-
 .nav-links{
   display:flex;
   gap:25px;
@@ -48,7 +70,6 @@ body.dark .logo-img{filter:brightness(1.2)}
   font-weight:500;
 }
 .nav-links a:hover{color:#f472b6}
-
 #modeSwitch{
   padding:8px 15px;
   border:none;
@@ -60,23 +81,16 @@ body.dark .logo-img{filter:brightness(1.2)}
 
 /* ================= MOBILE LOGO ================= */
 .mobile-logo{display:none}
-
 @media(max-width:768px){
   nav{display:none}
-
   .mobile-logo{
     display:flex;
     justify-content:center;
     padding:25px 0 10px;
     animation:fadeDown .8s ease;
   }
-
-  .mobile-logo img{
-    height:60px;
-    filter:drop-shadow(0 0 18px rgba(255,182,193,.8));
-  }
+  .mobile-logo img{height:60px}
 }
-
 @keyframes fadeDown{
   from{opacity:0;transform:translateY(-20px)}
   to{opacity:1;transform:translateY(0)}
@@ -94,80 +108,17 @@ header p{
   font-size:1.2em;
   opacity:.85;
 }
-.cta{
-  display:inline-block;
-  margin-top:35px;
-  padding:15px 45px;
-  background:#fbb6ce;
-  color:#000;
-  border-radius:14px;
-  font-weight:bold;
-  text-decoration:none;
-}
-.cta:hover{background:#f472b6}
 
 /* ================= SECTIONS ================= */
 section{
-  max-width:1200px;
+  max-width:1100px;
   margin:auto;
   padding:80px 20px;
 }
 section h2{
   text-align:center;
   font-size:2.2em;
-  margin-bottom:50px;
-}
-
-/* ================= PRODUITS ================= */
-.cards{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
-  gap:30px;
-}
-.card{
-  background:#ffffffdd;
-  padding:35px;
-  border-radius:30px;
-  text-align:center;
-  box-shadow:0 15px 40px rgba(0,0,0,.08);
-  border:1px solid #ffe4e1;
-  background-image:url('fleur.png');
-  background-repeat:no-repeat;
-  background-position:bottom right;
-  background-size:90px;
-}
-.price{font-size:2em;color:#22c55e;margin:20px 0}
-
-.card a{
-  padding:12px 35px;
-  background:#2563eb;
-  color:white;
-  border-radius:12px;
-  font-weight:bold;
-  text-decoration:none;
-}
-.card a:hover{background:#1d4ed8}
-
-button.disabled{
-  padding:12px 35px;
-  background:#777;
-  color:white;
-  border:none;
-  border-radius:12px;
-  cursor:not-allowed;
-}
-
-/* ================= FEATURES ================= */
-.features{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-  gap:30px;
-}
-.feature{
-  background:white;
-  padding:30px;
-  border-radius:25px;
-  text-align:center;
+  margin-bottom:40px;
 }
 
 /* ================= CONTACT ================= */
@@ -178,12 +129,41 @@ button.disabled{
   text-align:center;
 }
 
-/* ================= FOOTER ================= */
-footer{
-  text-align:center;
-  padding:30px;
-  opacity:.6;
+/* ================= SOCIAL ICONS ================= */
+.socials{
+  margin-top:30px;
+  display:flex;
+  justify-content:center;
+  gap:18px;
+  flex-wrap:wrap;
 }
+.socials a{
+  width:60px;
+  height:60px;
+  border-radius:50%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:1.6em;
+  color:white;
+  transition:.3s;
+}
+.socials a:hover{
+  transform:translateY(-6px) scale(1.15);
+  box-shadow:0 0 30px rgba(255,182,193,.9);
+}
+.youtube{background:#ff0000}
+.instagram{background:linear-gradient(45deg,#f58529,#dd2a7b,#8134af)}
+.x{background:#000}
+.discord{background:#5865F2}
+
+/* ================= DARK MODE ================= */
+body.dark{
+  background:#000;
+  color:white;
+}
+body.dark .contact{background:#111}
+body.dark a{color:white}
 
 /* ================= SAKURA ================= */
 .sakura{
@@ -202,22 +182,8 @@ footer{
   to{transform:translateY(110vh) rotate(360deg);opacity:0}
 }
 
-/* ================= DARK MODE ================= */
-body.dark{
-  background:#000;
-  color:white;
-}
-body.dark .card,
-body.dark .feature,
-body.dark .contact{
-  background:#111;
-  border-color:#fbb6ce;
-}
-body.dark a{color:white}
-
-/* ================= MOBILE NAV LIQUID ================= */
+/* ================= MOBILE NAV ================= */
 .mobile-nav{display:none}
-
 @media(max-width:768px){
   .mobile-nav{
     position:fixed;
@@ -232,27 +198,18 @@ body.dark a{color:white}
     border-radius:35px;
     background:rgba(255,255,255,.25);
     backdrop-filter:blur(25px);
-    box-shadow:0 20px 50px rgba(0,0,0,.35);
     z-index:999;
   }
-
   body.dark .mobile-nav{
     background:rgba(0,0,0,.45);
     border:1px solid rgba(255,182,193,.4);
   }
-
   .mobile-nav a,
   .mobile-nav button{
     font-size:1.7em;
     background:none;
     border:none;
-    cursor:pointer;
-    transition:.2s;
-  }
-
-  .mobile-nav .active{
-    transform:translateY(-6px) scale(1.2);
-    text-shadow:0 0 18px #fbb6ce;
+    color:white;
   }
 }
 </style>
@@ -261,7 +218,7 @@ body.dark a{color:white}
 <body>
 
 <div class="mobile-logo">
-  <img src="logo.png">
+  <img src="logo.png" alt="ChouGame">
 </div>
 
 <div class="sakura" id="sakura"></div>
@@ -270,74 +227,47 @@ body.dark a{color:white}
   <img src="logo.png" class="logo-img">
   <div class="nav-links">
     <a href="#accueil">Accueil</a>
-    <a href="#produits">Produits</a>
-    <a href="#apropos">À propos</a>
     <a href="#contact">Contact</a>
     <button id="modeSwitch">Mode sombre</button>
   </div>
 </nav>
 
-<header id="accueil">
+<header id="accueil" class="reveal">
   <h1>Optimisation Windows</h1>
   <p>Boostez les performances de votre PC avec une optimisation efficace et gaming.</p>
-  <a href="#produits" class="cta">Voir les offres</a>
 </header>
 
-<section id="produits">
-  <h2>Nos Offres</h2>
-  <div class="cards">
-    <div class="card">
-      <h3>Produit Gratuit</h3>
-      <div class="price">0€</div>
-      <a href="https://drive.google.com/file/d/1Wa3Jc5gcxKvPfupRYZ_NpjHP9hUVA2Tr/view" target="_blank">Télécharger</a>
-    </div>
-    <div class="card">
-      <h3>Optimisation Gaming</h3>
-      <div class="price">19€</div>
-      <button class="disabled">Non disponible</button>
-    </div>
-    <div class="card">
-      <h3>Optimisation Complète</h3>
-      <div class="price">29€</div>
-      <button class="disabled">Non disponible</button>
-    </div>
-  </div>
-</section>
-
-<section id="apropos">
-  <h2>Pourquoi ChouGame ?</h2>
-  <div class="features">
-    <div class="feature">⚡ Performances maximales</div>
-    <div class="feature">🎮 Gaming focus</div>
-    <div class="feature">🛡️ Méthodes sûres</div>
-    <div class="feature">💬 Support humain</div>
-  </div>
-</section>
-
-<section id="contact">
+<section id="contact" class="reveal">
   <div class="contact">
     <h2>Contact</h2>
     <p>
       📧 cchougame@icloud.com<br>
       💬 Discord : chougame
     </p>
+
+    <div class="socials">
+      <a href="https://youtube.com/@chougame?si=98ozrnUACWnsgUWD" target="_blank" class="youtube">
+        <i class="fab fa-youtube"></i>
+      </a>
+      <a href="https://www.instagram.com/clementc.22" target="_blank" class="instagram">
+        <i class="fab fa-instagram"></i>
+      </a>
+      <a href="https://x.com/gamchou" target="_blank" class="x">
+        <i class="fab fa-x-twitter"></i>
+      </a>
+      <a href="https://discord.gg/HqpV583Zjc" target="_blank" class="discord">
+        <i class="fab fa-discord"></i>
+      </a>
+    </div>
   </div>
 </section>
 
-<footer>© 2026 ChouGame</footer>
-
-<div class="mobile-nav">
-  <a href="#accueil" class="active">🏠</a>
-  <a href="#produits">🛒</a>
-  <a href="#apropos">ℹ️</a>
-  <a href="#contact">✉️</a>
-  <button id="mobileMode">🌙</button>
-</div>
+<footer class="reveal">© 2026 ChouGame</footer>
 
 <script>
 /* SAKURA */
 const sakura=document.getElementById('sakura');
-for(let i=0;i<20;i++){
+for(let i=0;i<18;i++){
   const f=document.createElement('img');
   f.src='fleur.png';
   f.className='flower';
@@ -348,16 +278,17 @@ for(let i=0;i<20;i++){
 }
 
 /* DARK MODE */
-const toggle=()=>document.body.classList.toggle('dark');
-modeSwitch.onclick=toggle;
-mobileMode.onclick=toggle;
+modeSwitch.onclick=()=>document.body.classList.toggle('dark');
 
-/* ACTIVE ICON */
-document.querySelectorAll('.mobile-nav a').forEach(el=>{
-  el.onclick=()=>{
-    document.querySelectorAll('.mobile-nav a').forEach(i=>i.classList.remove('active'));
-    el.classList.add('active');
-  }
+/* SCROLL REVEAL */
+const reveals=document.querySelectorAll('.reveal');
+window.addEventListener('scroll',()=>{
+  reveals.forEach(r=>{
+    const top=r.getBoundingClientRect().top;
+    if(top<window.innerHeight-100){
+      r.classList.add('active');
+    }
+  });
 });
 </script>
 
