@@ -2,6 +2,7 @@
 <html lang="fr">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Optimisation Windows | ChouGame</title>
 
   <style>
@@ -31,7 +32,7 @@
 
     nav .logo {
       font-weight: bold;
-      font-size: 1.2em;
+      font-size: 1.3em;
       color: #2563eb;
     }
 
@@ -62,17 +63,17 @@
       font-size: 1.2em;
       max-width: 700px;
       margin: auto;
-      opacity: 0.8;
+      opacity: 0.85;
     }
 
     .cta {
       display: inline-block;
-      margin-top: 30px;
-      padding: 15px 40px;
+      margin-top: 35px;
+      padding: 15px 45px;
       background: #2563eb;
       color: white;
       text-decoration: none;
-      border-radius: 8px;
+      border-radius: 10px;
       font-weight: bold;
       transition: 0.3s;
     }
@@ -103,14 +104,15 @@
 
     .card {
       background: white;
-      padding: 30px;
-      border-radius: 15px;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+      padding: 35px;
+      border-radius: 18px;
+      box-shadow: 0 15px 40px rgba(0,0,0,0.06);
       text-align: center;
     }
 
     .card h3 {
       margin-bottom: 15px;
+      font-size: 1.3em;
     }
 
     .price {
@@ -121,11 +123,11 @@
 
     .card a {
       display: inline-block;
-      padding: 12px 30px;
+      padding: 12px 35px;
       background: #2563eb;
       color: white;
       text-decoration: none;
-      border-radius: 6px;
+      border-radius: 8px;
       font-weight: bold;
     }
 
@@ -142,14 +144,18 @@
     }
 
     .feature {
-      padding: 20px;
+      background: white;
+      padding: 30px;
+      border-radius: 15px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+      font-size: 1.1em;
     }
 
     /* CONTACT */
     .contact {
       background: #eef2ff;
-      border-radius: 20px;
-      padding: 40px;
+      border-radius: 25px;
+      padding: 45px;
       text-align: center;
     }
 
@@ -158,6 +164,43 @@
       padding: 30px;
       font-size: 0.9em;
       opacity: 0.6;
+    }
+
+    /* MOBILE */
+    @media (max-width: 768px) {
+      nav {
+        flex-direction: column;
+        padding: 15px 20px;
+      }
+
+      nav .logo {
+        margin-bottom: 10px;
+      }
+
+      nav a {
+        margin: 10px;
+      }
+
+      header h1 {
+        font-size: 2em;
+      }
+
+      header p {
+        font-size: 1em;
+        padding: 0 10px;
+      }
+
+      section {
+        padding: 60px 15px;
+      }
+
+      .cards {
+        grid-template-columns: 1fr;
+      }
+
+      .contact {
+        padding: 30px;
+      }
     }
   </style>
 </head>
@@ -179,9 +222,8 @@
   <header id="accueil">
     <h1>Optimisation Windows Professionnelle</h1>
     <p>
-      Boostez les performances de votre PC.
-      Plus de FPS, moins de latence et un système plus fluide,
-      optimisé pour le gaming et l’usage quotidien.
+      Améliorez les performances de votre PC avec une optimisation Windows
+      propre, efficace et adaptée au gaming comme à l’usage quotidien.
     </p>
     <a href="#produits" class="cta">Voir les offres</a>
   </header>
@@ -195,8 +237,9 @@
         <h3>Optimisation Gaming</h3>
         <p>
           Nettoyage Windows<br>
-          Réglages FPS & latence<br>
-          Windows 10 / 11
+          Réduction de la latence<br>
+          Optimisation FPS<br>
+          Windows 10 & 11
         </p>
         <div class="price">19€</div>
         <a href="TON_LIEN_PAYPAL">Commander</a>
@@ -207,7 +250,8 @@
         <p>
           Optimisation système avancée<br>
           Performances maximales<br>
-          Support personnalisé
+          Réglages personnalisés<br>
+          Support inclus
         </p>
         <div class="price">29€</div>
         <a href="TON_LIEN_PAYPAL">Commander</a>
@@ -217,12 +261,12 @@
 
   <!-- POURQUOI -->
   <section id="apropos">
-    <h2>Pourquoi nous choisir ?</h2>
+    <h2>Pourquoi ChouGame ?</h2>
 
     <div class="features">
       <div class="feature">⚡ Optimisation personnalisée</div>
-      <div class="feature">🎮 Spécialisé Gaming</div>
-      <div class="feature">🛡️ Méthodes propres & sûres</div>
+      <div class="feature">🎮 Spécialisé gaming</div>
+      <div class="feature">🛡️ Méthodes sûres & propres</div>
       <div class="feature">💬 Support humain</div>
     </div>
   </section>
