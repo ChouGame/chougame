@@ -2,7 +2,8 @@
 <html lang="fr">
 <head>
   <meta charset="UTF-8">
-  <title>Optimisation Windows</title>
+  <title>Optimisation Windows | ChouGame</title>
+
   <style>
     body {
       margin: 0;
@@ -11,25 +12,52 @@
       color: white;
       text-align: center;
     }
-    header {
-      padding: 60px 20px;
+
+    /* NAVIGATION */
+    nav {
+      background: #020617;
+      padding: 15px 0;
+      position: sticky;
+      top: 0;
+      z-index: 100;
     }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin: 0 20px;
+      font-weight: bold;
+    }
+
+    nav a:hover {
+      color: #38bdf8;
+    }
+
+    /* HEADER */
+    header {
+      padding: 80px 20px;
+    }
+
     h1 {
       font-size: 2.5em;
       color: #38bdf8;
     }
+
+    /* BOX */
     .box {
       background: #020617;
-      margin: 20px auto;
+      margin: 30px auto;
       padding: 30px;
-      max-width: 600px;
+      max-width: 700px;
       border-radius: 10px;
     }
+
     .price {
       font-size: 2em;
       color: #22c55e;
     }
-    a.button {
+
+    .button {
       display: inline-block;
       padding: 15px 30px;
       background: #38bdf8;
@@ -39,44 +67,84 @@
       margin-top: 20px;
       font-weight: bold;
     }
+
+    .button:hover {
+      background: #0ea5e9;
+    }
+
     footer {
       margin-top: 40px;
+      padding: 20px;
       font-size: 0.9em;
       opacity: 0.7;
     }
   </style>
 </head>
+
 <body>
 
-<header>
-  <h1>Optimisation Windows</h1>
-  <p>Plus de FPS • Moins de latence • Système fluide</p>
-</header>
+  <!-- MENU -->
+  <nav>
+    <a href="#accueil">Accueil</a>
+    <a href="#produits">Produits</a>
+    <a href="#apropos">À propos</a>
+    <a href="#contact">Contact</a>
+  </nav>
 
-<div class="box">
-  <h2>Optimisation Gaming</h2>
-  <p>
-    ✔️ Nettoyage Windows<br>
-    ✔️ Réglages performances<br>
-    ✔️ Optimisation FPS & latence<br>
-    ✔️ Windows 10 & 11
-  </p>
-  <p class="price">19€</p>
-  <a class="button" href="paypal.me/chougame">Commander</a>
-</div>
+  <!-- ACCUEIL -->
+  <header id="accueil">
+    <h1>Optimisation Windows</h1>
+    <p>Plus de FPS • Moins de latence • Système plus fluide</p>
+  </header>
 
-<div class="box">
-  <h2>Comment ça marche ?</h2>
-  <p>
-    1️⃣ Tu commandes<br>
-    2️⃣ Tu me contactes (Discord / Mail)<br>
-    3️⃣ Optimisation à distance ou scripts envoyés
-  </p>
-</div>
+  <!-- PRODUITS -->
+  <div class="box" id="produits">
+    <h2>Optimisation Gaming</h2>
+    <p>
+      ✔️ Nettoyage Windows<br>
+      ✔️ Désactivation des services inutiles<br>
+      ✔️ Optimisation FPS & latence<br>
+      ✔️ Windows 10 & 11
+    </p>
+    <p class="price">19€</p>
+    <a class="button" href="TON_LIEN_PAYPAL">Commander</a>
+  </div>
 
-<footer>
-  Contact : cchougame@icloud.com | Discord : chougame  
-</footer>
+  <div class="box">
+    <h2>Optimisation Complète</h2>
+    <p>
+      ✔️ Optimisation système complète<br>
+      ✔️ Réglages avancés performances<br>
+      ✔️ Conseils personnalisés<br>
+      ✔️ Support après optimisation
+    </p>
+    <p class="price">29€</p>
+    <a class="button" href="TON_LIEN_PAYPAL">Commander</a>
+  </div>
+
+  <!-- A PROPOS -->
+  <div class="box" id="apropos">
+    <h2>À propos</h2>
+    <p>
+      Je propose des optimisations Windows personnalisées pour améliorer
+      les performances, la fluidité et la stabilité de votre PC,
+      notamment pour le gaming.
+    </p>
+  </div>
+
+  <!-- CONTACT -->
+  <div class="box" id="contact">
+    <h2>Contact</h2>
+    <p>
+      📧 Email : cchougame@icloud.com <br>
+      💬 Discord : chougame
+    </p>
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    © 2026 ChouGame — Optimisation Windows
+  </footer>
 
 </body>
 </html>
