@@ -51,7 +51,12 @@ body.dark .logo-img{filter:brightness(1.2)}
 @keyframes fadeDown{from{opacity:0;transform:translateY(-20px)} to{opacity:1;transform:translateY(0)}}
 
 /* HERO */
-header{text-align:center;padding:90px 20px;}
+header{
+  position:relative;
+  z-index:1;
+  text-align:center;
+  padding:90px 20px;
+}
 header h1{font-size:3em;margin-bottom:20px}
 header p{max-width:700px;margin:auto;font-size:1.2em;opacity:.85;}
 .cta{display:inline-block;margin-top:35px;padding:15px 45px;background:#fbb6ce;color:#000;border-radius:14px;font-weight:bold;text-decoration:none;transition:.3s}
@@ -90,6 +95,26 @@ footer{text-align:center;padding:30px;opacity:.6;transition:.4s}
 .flower{position:absolute;opacity:.6;animation:fall linear infinite}
 @keyframes fall{from{transform:translateY(-50px) rotate(0);opacity:0} to{transform:translateY(110vh) rotate(360deg);opacity:0}}
 
+/* HEADER GLOW SAKURA */
+.header-glow {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  overflow: visible;
+}
+.header-glow .flower-glow {
+  position: absolute;
+  opacity: 0.7;
+  filter: drop-shadow(0 0 15px #fbb6ce) drop-shadow(0 0 25px #f472b6);
+  animation:fallGlow linear infinite;
+}
+@keyframes fallGlow {
+  0% { transform: translateY(-50px) rotate(0deg); opacity: 0; }
+  50% { opacity: 0.8; }
+  100% { transform: translateY(120vh) rotate(360deg); opacity: 0; }
+}
+
 /* DARK MODE */
 body.dark{background:#000;color:#fff}
 body.dark nav{background:#111;box-shadow:0 2px 10px rgba(255,182,193,.2);}
@@ -127,6 +152,7 @@ body.dark .social{color:white;}
 </nav>
 
 <header id="accueil">
+  <div class="header-glow" id="headerGlow"></div>
   <h1>Optimisation Windows</h1>
   <p>Boostez les performances de votre PC avec une optimisation efficace et gaming.</p>
   <a href="#produits" class="cta">Voir les offres</a>
@@ -138,7 +164,6 @@ body.dark .social{color:white;}
     <div class="card">
       <h3>Produit Gratuit</h3>
       <div class="price">0€</div>
-      <!-- Pour téléchargement direct -->
       <a href="https://drive.google.com/uc?export=download&id=1Wa3Jc5gcxKvPfupRYZ_NpjHP9hUVA2Tr" target="_blank" download>Télécharger</a>
     </div>
     <div class="card">
@@ -209,11 +234,23 @@ for (let i = 0; i < 20; i++) {
   sakura.appendChild(f);
 }
 
-// ---------------- DARK MODE ----------------
-function toggleDarkMode() {
-  document.body.classList.toggle('dark');
+// ---------------- HEADER GLOW SAKURA ----------------
+const headerGlow = document.getElementById('headerGlow');
+if (window.innerWidth > 768) { // uniquement PC
+  for (let i = 0; i < 15; i++) {
+    const f = document.createElement('img');
+    f.src = 'fleur.png';
+    f.className = 'flower-glow';
+    f.style.left = Math.random() * 100 + 'vw';
+    f.style.width = 50 + Math.random() * 40 + 'px';
+    f.style.animationDuration = 8 + Math.random() * 12 + 's';
+    f.style.animationDelay = Math.random() * 5 + 's';
+    headerGlow.appendChild(f);
+  }
 }
 
+// ---------------- DARK MODE ----------------
+function toggleDarkMode() { document.body.classList.toggle('dark'); }
 document.addEventListener('DOMContentLoaded', () => {
   document.getElementById('modeSwitch').addEventListener('click', toggleDarkMode);
   document.getElementById('mobileMode').addEventListener('click', toggleDarkMode);
