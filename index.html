@@ -192,19 +192,17 @@ body.dark .social{color:white;}
 </div>
 
 <script>
-// Sakura animation
-const sakura=document.getElementById('sakura');
-for(let i=0;i<20;i++){
-  const f=document.createElement('img');
-  f.src='fleur.png';
-  f.className='flower';
-  f.style.left=Math.random()*100+'vw';
-  f.style.width=60+Math.random()*50+'px';
-  f.style.animationDuration=10+Math.random()*15+'s';
+// ---------------- SAKURA ----------------
+const sakura = document.getElementById('sakura');
+for (let i = 0; i < 20; i++) {
+  const f = document.createElement('img');
+  f.src = 'fleur.png';
+  f.className = 'flower';
+  f.style.left = Math.random() * 100 + 'vw';
+  f.style.width = 60 + Math.random() * 50 + 'px';
+  f.style.animationDuration = 10 + Math.random() * 15 + 's';
   sakura.appendChild(f);
 }
 
-// Dark mode toggle
-const modeSwitch = document.getElementById('modeSwitch');
-const mobileMode = document.getElementById('mobileMode');
-const toggleDark = () => document
+// ---------------- DARK MODE ----------------
+const modeSwitch
