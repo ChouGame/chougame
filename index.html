@@ -3,206 +3,220 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Optimisation Windows | ChouGame</title>
+<title>ChouGame – Optimisation Windows</title>
 
 <style>
-* { box-sizing: border-box; }
+*{margin:0;padding:0;box-sizing:border-box}
 
-body {
-  margin: 0;
-  font-family: 'Segoe UI', Arial, sans-serif;
-  background: linear-gradient(to bottom, #fff8f0, #f8fafc);
-  color: #0f172a;
-  position: relative;
-  overflow-x: hidden;
-  transition: background 0.5s, color 0.5s;
+body{
+  font-family:'Segoe UI',Arial,sans-serif;
+  background:linear-gradient(to bottom,#fff8f0,#f8fafc);
+  color:#0f172a;
+  transition:.5s;
+  overflow-x:hidden;
 }
 
 /* NAVBAR */
-nav {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 20px 60px;
-  box-shadow: 0 2px 10px rgba(0,0,0,0.05);
-  position: sticky;
-  top: 0;
-  z-index: 100;
-  background: white;
-  transition: background 0.5s;
+nav{
+  position:sticky;
+  top:0;
+  background:white;
+  z-index:100;
+  box-shadow:0 2px 10px rgba(0,0,0,.05);
+  padding:20px;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap:15px;
+  transition:.5s;
 }
-nav .logo { font-weight: bold; font-size: 1.3em; color: #2563eb; transition: color 0.5s; }
-nav a {
-  margin-left: 25px;
-  text-decoration: none;
-  color: #0f172a;
-  font-weight: 500;
-  transition: color 0.5s;
-}
-nav a:hover { color: #2563eb; }
 
-/* Mode switch button */
-#modeSwitch {
-  margin-left: 20px;
-  padding: 8px 15px;
-  border: none;
-  border-radius: 8px;
-  cursor: pointer;
-  font-weight: bold;
-  background: #fbb6ce;
-  color: #0f172a;
-  transition: background 0.5s, color 0.5s;
+/* LOGO PNG */
+.logo-img{
+  height:70px;
+  width:auto;
+  transition:transform .3s;
+}
+.logo-img:hover{transform:scale(1.05)}
+body.dark .logo-img{filter:brightness(1.15)}
+
+/* NAV LINKS */
+.nav-links{
+  display:flex;
+  align-items:center;
+  gap:25px;
+  flex-wrap:wrap;
+}
+.nav-links a{
+  text-decoration:none;
+  font-weight:500;
+  color:#0f172a;
+}
+.nav-links a:hover{color:#2563eb}
+
+/* MODE BUTTON */
+#modeSwitch{
+  padding:8px 15px;
+  border:none;
+  border-radius:8px;
+  background:#fbb6ce;
+  font-weight:bold;
+  cursor:pointer;
 }
 
 /* HERO */
-header {
-  padding: 100px 20px;
-  text-align: center;
+header{
+  text-align:center;
+  padding:100px 20px;
 }
-header h1 { font-size: 3em; margin-bottom: 20px; }
-header p { font-size: 1.2em; max-width: 700px; margin: auto; opacity: 0.85; transition: color 0.5s; }
-
-.cta {
-  display: inline-block;
-  margin-top: 35px;
-  padding: 15px 45px;
-  background: #fbb6ce;
-  color: #0f172a;
-  text-decoration: none;
-  border-radius: 10px;
-  font-weight: bold;
-  transition: 0.3s, background 0.5s, color 0.5s;
+header h1{font-size:3em;margin-bottom:20px}
+header p{
+  max-width:700px;
+  margin:auto;
+  font-size:1.2em;
+  opacity:.85;
 }
-.cta:hover { background: #f472b6; }
+.cta{
+  display:inline-block;
+  margin-top:35px;
+  padding:15px 45px;
+  background:#fbb6ce;
+  color:#0f172a;
+  border-radius:10px;
+  font-weight:bold;
+  text-decoration:none;
+}
+.cta:hover{background:#f472b6}
 
 /* SECTIONS */
-section { padding: 80px 20px; max-width: 1200px; margin: auto; }
-section h2 { text-align: center; font-size: 2.2em; margin-bottom: 50px; transition: color 0.5s; }
-
-/* CARDS PRODUITS */
-.cards {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 30px;
+section{
+  max-width:1200px;
+  margin:auto;
+  padding:80px 20px;
+}
+section h2{
+  text-align:center;
+  font-size:2.2em;
+  margin-bottom:50px;
 }
 
-.card {
-  background: #ffffffcc;
-  padding: 35px;
-  border-radius: 20px;
-  box-shadow: 0 15px 40px rgba(0,0,0,0.06);
-  text-align: center;
-  border: 1px solid #ffe4e1;
-  background-image: url('fleur.png');
-  background-repeat: no-repeat;
-  background-position: bottom right;
-  background-size: 40px;
-  transition: background 0.5s, color 0.5s;
+/* PRODUITS */
+.cards{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+  gap:30px;
 }
-.card h3 { margin-bottom: 15px; font-size: 1.3em; }
-.price { font-size: 2em; color: #22c55e; margin: 20px 0; transition: color 0.5s; }
-.card a {
-  display: inline-block;
-  padding: 12px 35px;
-  background: #2563eb;
-  color: white;
-  text-decoration: none;
-  border-radius: 8px;
-  font-weight: bold;
-  transition: background 0.5s, color 0.5s;
+.card{
+  background:#ffffffcc;
+  padding:35px;
+  border-radius:20px;
+  text-align:center;
+  box-shadow:0 15px 40px rgba(0,0,0,.06);
+  border:1px solid #ffe4e1;
+  background-image:url('fleur.png');
+  background-repeat:no-repeat;
+  background-position:bottom right;
+  background-size:40px;
 }
-.card a:hover { background: #1d4ed8; }
+.card h3{margin-bottom:15px}
+.price{font-size:2em;color:#22c55e;margin:20px 0}
 
-/* FEATURES */
-.features {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 30px;
-  text-align: center;
+.card a{
+  display:inline-block;
+  padding:12px 35px;
+  background:#2563eb;
+  color:white;
+  border-radius:8px;
+  font-weight:bold;
+  text-decoration:none;
 }
-.feature {
-  background: white;
-  padding: 30px;
-  border-radius: 15px;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.05);
-  font-size: 1.1em;
-  transition: background 0.5s, color 0.5s;
+.card a:hover{background:#1d4ed8}
+
+/* BOUTON NON DISPO */
+button.disabled{
+  padding:12px 35px;
+  background:#888;
+  color:white;
+  border:none;
+  border-radius:8px;
+  font-weight:bold;
+  cursor:not-allowed;
+}
+
+/* POURQUOI */
+.features{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+  gap:30px;
+}
+.feature{
+  background:white;
+  padding:30px;
+  border-radius:15px;
+  box-shadow:0 10px 30px rgba(0,0,0,.05);
+  text-align:center;
 }
 
 /* CONTACT */
-.contact {
-  background: #eef2ff;
-  border-radius: 25px;
-  padding: 45px;
-  text-align: center;
-  transition: background 0.5s, color 0.5s;
+.contact{
+  background:#eef2ff;
+  border-radius:25px;
+  padding:45px;
+  text-align:center;
 }
 
-footer {
-  text-align: center;
-  padding: 30px;
-  font-size: 0.9em;
-  opacity: 0.6;
-  transition: color 0.5s;
+/* FOOTER */
+footer{
+  text-align:center;
+  padding:30px;
+  opacity:.6;
 }
 
-/* MOBILE */
-@media (max-width: 768px) {
-  nav { flex-direction: column; padding: 15px 20px; }
-  nav .logo { margin-bottom: 10px; }
-  nav a { margin: 10px; }
-  header h1 { font-size: 2em; }
-  header p { font-size: 1em; padding: 0 10px; }
-  section { padding: 60px 15px; }
-  .cards { grid-template-columns: 1fr; }
-  .contact { padding: 30px; }
+/* FLEURS */
+.sakura{
+  position:fixed;
+  inset:0;
+  pointer-events:none;
 }
-
-/* FLEURS SAKURA FLOTTANTES */
-.sakura {
-  pointer-events: none;
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: 0;
+.flower{
+  position:absolute;
+  opacity:.4;
+  animation:fall linear infinite;
 }
-.flower {
-  position: absolute;
-  opacity: 0.4;
-  animation: fall linear infinite;
-}
-
-@keyframes fall {
-  0% { transform: translateY(-50px) rotate(0deg); opacity: 0; }
-  10% { opacity: 0.4; }
-  100% { transform: translateY(110vh) rotate(360deg); opacity: 0; }
+@keyframes fall{
+  0%{transform:translateY(-50px) rotate(0);opacity:0}
+  10%{opacity:.4}
+  100%{transform:translateY(110vh) rotate(360deg);opacity:0}
 }
 
 /* MODE SOMBRE */
-body.dark {
-  background: #000;
-  color: #fff;
+body.dark{
+  background:#000;
+  color:white;
 }
-body.dark nav { background: #fbb6ce; }
-body.dark nav .logo, body.dark nav a { color: #fff; }
-body.dark #modeSwitch { background: #2563eb; color: #fff; }
-body.dark header p, body.dark section h2, body.dark .card, body.dark .feature, body.dark .contact, body.dark footer { color: #fff; }
-body.dark .card { background: #222222cc; border-color: #fbb6ce; }
-body.dark .card a { background: #fbb6ce; color: #0f172a; }
-body.dark .card a:hover { background: #f472b6; color: #fff; }
+body.dark nav{background:#000}
+body.dark a{color:white}
+body.dark .card{background:#222;border-color:#fbb6ce}
+body.dark .feature{background:#111}
+body.dark .contact{background:#111}
+body.dark #modeSwitch{background:#2563eb;color:white}
+
+/* MOBILE */
+@media(max-width:768px){
+  header h1{font-size:2em}
+  .nav-links{flex-direction:column}
+  .logo-img{height:55px}
+}
 </style>
 </head>
+
 <body>
 
-<!-- FLEURS FLOTTANTES -->
 <div class="sakura" id="sakura"></div>
 
-<!-- NAVBAR -->
 <nav>
-  <div class="logo">ChouGame</div>
-  <div>
+  <img src="logo.png" alt="ChouGame Logo" class="logo-img">
+  <div class="nav-links">
     <a href="#accueil">Accueil</a>
     <a href="#produits">Produits</a>
     <a href="#apropos">À propos</a>
@@ -211,70 +225,50 @@ body.dark .card a:hover { background: #f472b6; color: #fff; }
   </div>
 </nav>
 
-<!-- HERO -->
 <header id="accueil">
   <h1>Optimisation Windows Professionnelle</h1>
-  <p>
-    Améliorez les performances de votre PC avec une optimisation Windows
-    propre, efficace et adaptée au gaming comme à l’usage quotidien.
-  </p>
+  <p>Boostez les performances de votre PC avec une optimisation propre, efficace et adaptée au gaming.</p>
   <a href="#produits" class="cta">Voir les offres</a>
 </header>
 
-<!-- PRODUITS -->
 <section id="produits">
   <h2>Nos Offres</h2>
-
   <div class="cards">
-    <!-- PRODUIT GRATUIT EN PREMIER -->
+
     <div class="card">
       <h3>Produit Gratuit</h3>
-      <p>
-        Téléchargez gratuitement notre outil d’optimisation.<br>
-        Compatible Windows.
-      </p>
+      <p>Outil d’optimisation Windows gratuit</p>
       <div class="price">0€</div>
-      <a href="https://drive.google.com/file/d/1Wa3Jc5gcxKvPfupRYZ_NpjHP9hUVA2Tr/view?usp=sharing" target="_blank">Télécharger</a>
+      <a href="https://drive.google.com/file/d/1Wa3Jc5gcxKvPfupRYZ_NpjHP9hUVA2Tr/view" target="_blank">Télécharger</a>
     </div>
 
     <div class="card">
       <h3>Optimisation Gaming</h3>
-      <p>
-        Nettoyage Windows<br>
-        Réduction de la latence<br>
-        Optimisation FPS<br>
-        Windows 10 & 11
-      </p>
+      <p>FPS • Latence • Nettoyage</p>
       <div class="price">19€</div>
-      <a href="https://paypal.me/chougameopti" target="_blank">Commander</a>
+      <button class="disabled">Non disponible</button>
     </div>
 
     <div class="card">
       <h3>Optimisation Complète</h3>
-      <p>
-        Optimisation système avancée<br>
-        Performances maximales<br>
-        Réglages personnalisés<br>
-        Support inclus
-      </p>
+      <p>Performances maximales</p>
       <div class="price">29€</div>
-      <a href="https://paypal.me/chougameopti" target="_blank">Commander</a>
+      <button class="disabled">Non disponible</button>
     </div>
+
   </div>
 </section>
 
-<!-- POURQUOI -->
 <section id="apropos">
   <h2>Pourquoi ChouGame ?</h2>
   <div class="features">
     <div class="feature">⚡ Optimisation personnalisée</div>
     <div class="feature">🎮 Spécialisé gaming</div>
-    <div class="feature">🛡️ Méthodes sûres & propres</div>
+    <div class="feature">🛡️ Méthodes sûres</div>
     <div class="feature">💬 Support humain</div>
   </div>
 </section>
 
-<!-- CONTACT -->
 <section id="contact">
   <div class="contact">
     <h2>Contact</h2>
@@ -289,28 +283,22 @@ body.dark .card a:hover { background: #f472b6; color: #fff; }
   © 2026 ChouGame — Optimisation Windows
 </footer>
 
-<!-- SCRIPT POUR CRÉER LES FLEURS ET SWITCH MODE -->
 <script>
-// Fleurs aléatoires
-const sakura = document.getElementById('sakura');
-const totalFlowers = 15;
-for(let i=0;i<totalFlowers;i++){
-  const img=document.createElement('img');
-  img.src='fleur.png';
-  img.className='flower';
-  img.style.left=Math.random()*100+'vw';
-  img.style.animationDuration=10+Math.random()*10+'s';
-  img.style.width=40+Math.random()*40+'px';
-  img.style.top='-50px';
-  sakura.appendChild(img);
+const sakura=document.getElementById('sakura');
+for(let i=0;i<15;i++){
+  const f=document.createElement('img');
+  f.src='fleur.png';
+  f.className='flower';
+  f.style.left=Math.random()*100+'vw';
+  f.style.width=40+Math.random()*40+'px';
+  f.style.animationDuration=10+Math.random()*10+'s';
+  sakura.appendChild(f);
 }
 
-// Switch mode sombre/clair
-const modeSwitch = document.getElementById('modeSwitch');
-modeSwitch.addEventListener('click', () => {
+document.getElementById('modeSwitch').onclick=()=>{
   document.body.classList.toggle('dark');
-  modeSwitch.textContent = document.body.classList.contains('dark') ? 'Mode Clair' : 'Mode Sombre';
-});
+  modeSwitch.textContent=document.body.classList.contains('dark')?'Mode Clair':'Mode Sombre';
+}
 </script>
 
 </body>
