@@ -7,16 +7,9 @@
 
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Segoe UI',Arial,sans-serif;background:linear-gradient(to bottom,#fff8f0,#f8fafc);color:#0f172a;transition:.4s;overflow-x:hidden;}
 
-body{
-  font-family:'Segoe UI',Arial,sans-serif;
-  background:linear-gradient(to bottom,#fff8f0,#f8fafc);
-  color:#0f172a;
-  transition:.4s;
-  overflow-x:hidden;
-}
-
-/* ================= DESKTOP NAV ================= */
+/* NAV */
 nav{
   position:sticky;
   top:0;
@@ -30,40 +23,17 @@ nav{
   box-shadow:0 2px 10px rgba(0,0,0,.05);
   transition:.4s;
 }
-
-.logo-img{
-  height:70px;
-  transition:.3s;
-}
+.logo-img{height:70px;transition:.3s}
 .logo-img:hover{transform:scale(1.05)}
 body.dark .logo-img{filter:brightness(1.2)}
 
-.nav-links{
-  display:flex;
-  gap:25px;
-  align-items:center;
-}
-.nav-links a{
-  text-decoration:none;
-  color:#0f172a;
-  font-weight:500;
-  transition:.3s;
-}
+.nav-links{display:flex;gap:25px;align-items:center;}
+.nav-links a{text-decoration:none;color:#0f172a;font-weight:500;transition:.3s;}
 .nav-links a:hover{color:#f472b6}
+#modeSwitch{padding:8px 15px;border:none;border-radius:10px;background:#fbb6ce;font-weight:bold;cursor:pointer;transition:.3s}
 
-#modeSwitch{
-  padding:8px 15px;
-  border:none;
-  border-radius:10px;
-  background:#fbb6ce;
-  font-weight:bold;
-  cursor:pointer;
-  transition:.3s;
-}
-
-/* ================= MOBILE LOGO ================= */
+/* MOBILE LOGO */
 .mobile-logo{display:none}
-
 @media(max-width:768px){
   nav{display:none}
   .mobile-logo{
@@ -71,61 +41,25 @@ body.dark .logo-img{filter:brightness(1.2)}
     justify-content:center;
     padding:25px 0 10px;
     animation:fadeDown .8s ease;
+    z-index:101;
   }
-  .mobile-logo img{
-    height:60px;
-    filter:drop-shadow(0 0 18px rgba(255,182,193,.8));
-  }
+  .mobile-logo img{height:60px;filter:drop-shadow(0 0 18px rgba(255,182,193,.8));}
 }
+@keyframes fadeDown{from{opacity:0;transform:translateY(-20px)} to{opacity:1;transform:translateY(0)}}
 
-@keyframes fadeDown{
-  from{opacity:0;transform:translateY(-20px)}
-  to{opacity:1;transform:translateY(0)}
-}
-
-/* ================= HERO ================= */
-header{
-  text-align:center;
-  padding:90px 20px;
-}
+/* HERO */
+header{text-align:center;padding:90px 20px;}
 header h1{font-size:3em;margin-bottom:20px}
-header p{
-  max-width:700px;
-  margin:auto;
-  font-size:1.2em;
-  opacity:.85;
-}
-.cta{
-  display:inline-block;
-  margin-top:35px;
-  padding:15px 45px;
-  background:#fbb6ce;
-  color:#000;
-  border-radius:14px;
-  font-weight:bold;
-  text-decoration:none;
-  transition:.3s;
-}
+header p{max-width:700px;margin:auto;font-size:1.2em;opacity:.85;}
+.cta{display:inline-block;margin-top:35px;padding:15px 45px;background:#fbb6ce;color:#000;border-radius:14px;font-weight:bold;text-decoration:none;transition:.3s}
 .cta:hover{background:#f472b6}
 
-/* ================= SECTIONS ================= */
-section{
-  max-width:1200px;
-  margin:auto;
-  padding:80px 20px;
-}
-section h2{
-  text-align:center;
-  font-size:2.2em;
-  margin-bottom:50px;
-}
+/* SECTIONS */
+section{max-width:1200px;margin:auto;padding:80px 20px;}
+section h2{text-align:center;font-size:2.2em;margin-bottom:50px}
 
-/* ================= PRODUITS ================= */
-.cards{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
-  gap:30px;
-}
+/* PRODUITS */
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:30px}
 .card{
   background:#ffffffdd;
   padding:35px;
@@ -140,176 +74,56 @@ section h2{
   transition:.4s;
 }
 .price{font-size:2em;color:#22c55e;margin:20px 0}
-
-.card a{
-  padding:12px 35px;
-  background:#2563eb;
-  color:white;
-  border-radius:12px;
-  font-weight:bold;
-  text-decoration:none;
-  transition:.3s;
-}
+.card a{padding:12px 35px;background:#2563eb;color:white;border-radius:12px;font-weight:bold;text-decoration:none;transition:.3s}
 .card a:hover{background:#1d4ed8}
+button.disabled{padding:12px 35px;background:#777;color:white;border:none;border-radius:12px;cursor:not-allowed}
 
-button.disabled{
-  padding:12px 35px;
-  background:#777;
-  color:white;
-  border:none;
-  border-radius:12px;
-  cursor:not-allowed;
-}
+/* FEATURES */
+.features{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:30px}
+.feature{background:white;padding:30px;border-radius:25px;text-align:center;transition:.4s}
 
-/* ================= FEATURES ================= */
-.features{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-  gap:30px;
-}
-.feature{
-  background:white;
-  padding:30px;
-  border-radius:25px;
-  text-align:center;
-  transition:.4s;
-}
+/* CONTACT */
+.contact{background:#eef2ff;border-radius:30px;padding:45px;text-align:center;transition:.4s}
 
-/* ================= CONTACT ================= */
-.contact{
-  background:#eef2ff;
-  border-radius:30px;
-  padding:45px;
-  text-align:center;
-  transition:.4s;
-}
-
-/* ================= SOCIALS ================= */
-.socials{
-  margin-top:30px;
-  display:flex;
-  justify-content:center;
-  gap:25px;
-}
+/* SOCIALS */
+.socials{margin-top:30px;display:flex;justify-content:center;gap:25px}
 .social{
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  width:55px;
-  height:55px;
-  border-radius:50%;
-  background:linear-gradient(135deg,#fbb6ce,#f472b6);
-  text-decoration:none;
-  transition:.3s;
-  transform:translateY(50px);
-  opacity:0;
-  color:white;
+  display:flex;justify-content:center;align-items:center;width:55px;height:55px;border-radius:50%;
+  background:linear-gradient(135deg,#fbb6ce,#f472b6);text-decoration:none;color:white;transition:.3s;
 }
 .social svg{width:28px;height:28px;fill:currentColor;}
-.social:hover{
-  transform:scale(1.2);
-  box-shadow:0 0 18px #fbb6ce;
-}
-.socials .social.visible{
-  transform:translateY(0);
-  opacity:1;
-  transition:.5s ease-out;
-}
+.social:hover{transform:scale(1.2);box-shadow:0 0 18px #fbb6ce;}
 
-/* ================= FOOTER ================= */
-footer{
-  text-align:center;
-  padding:30px;
-  opacity:.6;
-  transition:.4s;
-}
+/* FOOTER */
+footer{text-align:center;padding:30px;opacity:.6;transition:.4s}
 
-/* ================= SAKURA ================= */
-.sakura{
-  position:fixed;
-  inset:0;
-  pointer-events:none;
-  z-index:-1;
-}
-.flower{
-  position:absolute;
-  opacity:.6;
-  animation:fall linear infinite;
-}
-@keyframes fall{
-  from{transform:translateY(-50px) rotate(0);opacity:0}
-  to{transform:translateY(110vh) rotate(360deg);opacity:0}
-}
+/* SAKURA */
+.sakura{position:fixed;inset:0;pointer-events:none;z-index:0}
+.flower{position:absolute;opacity:.6;animation:fall linear infinite;}
+@keyframes fall{from{transform:translateY(-50px) rotate(0);opacity:0} to{transform:translateY(110vh) rotate(360deg);opacity:0}}
 
-/* ================= DARK MODE ================= */
-body.dark{
-  background:#000;
-  color:#fff;
-}
-body.dark nav{
-  background:#111;
-  box-shadow:0 2px 10px rgba(255,182,193,.2);
-}
-body.dark .nav-links a{
-  color:white;
-}
-body.dark #modeSwitch{
-  background:#f472b6;
-  color:white;
-}
-body.dark .mobile-nav{
-  background: rgba(0,0,0,.45);
-  border:1px solid rgba(255,182,193,.4);
-}
-body.dark .card,
-body.dark .feature,
-body.dark .contact{
-  background:#111;
-  border-color:#fbb6ce;
-}
-body.dark .cta{
-  background:#f472b6;
-  color:white;
-}
-body.dark .cta:hover{
-  background:#fbb6ce;
-}
-body.dark .social{
-  color:white;
-}
+/* DARK MODE */
+body.dark{background:#000;color:#fff}
+body.dark nav{background:#111;box-shadow:0 2px 10px rgba(255,182,193,.2);}
+body.dark .nav-links a{color:white;}
+body.dark #modeSwitch{background:#f472b6;color:white;}
+body.dark .mobile-nav{background: rgba(0,0,0,.45);border:1px solid rgba(255,182,193,.4);}
+body.dark .card,body.dark .feature,body.dark .contact{background:#111;border-color:#fbb6ce;}
+body.dark .cta{background:#f472b6;color:white;}
+body.dark .cta:hover{background:#fbb6ce;}
+body.dark .social{color:white;}
 
-/* MOBILE NAV LIQUID */
+/* MOBILE NAV */
 .mobile-nav{display:none}
 @media(max-width:768px){
   .mobile-nav{
-    position:fixed;
-    bottom:15px;
-    left:50%;
-    transform:translateX(-50%);
-    width:92%;
-    height:75px;
-    display:flex;
-    justify-content:space-around;
-    align-items:center;
-    border-radius:35px;
-    background:rgba(255,255,255,.25);
-    backdrop-filter:blur(25px);
-    box-shadow:0 20px 50px rgba(0,0,0,.35);
-    z-index:999;
-    transition:.4s;
+    position:fixed;bottom:15px;left:50%;transform:translateX(-50%);
+    width:92%;height:75px;display:flex;justify-content:space-around;align-items:center;
+    border-radius:35px;background:rgba(255,255,255,.25);backdrop-filter:blur(25px);
+    box-shadow:0 20px 50px rgba(0,0,0,.35);z-index:101;transition:.4s
   }
-  .mobile-nav a,
-  .mobile-nav button{
-    font-size:1.7em;
-    background:none;
-    border:none;
-    cursor:pointer;
-    transition:.2s;
-  }
-  .mobile-nav .active{
-    transform:translateY(-6px) scale(1.2);
-    text-shadow:0 0 18px #fbb6ce;
-  }
+  .mobile-nav a,.mobile-nav button{font-size:1.7em;background:none;border:none;cursor:pointer;transition:.2s}
+  .mobile-nav .active{transform:translateY(-6px) scale(1.2);text-shadow:0 0 18px #fbb6ce;}
 }
 </style>
 </head>
@@ -341,7 +155,7 @@ body.dark .social{
     <div class="card">
       <h3>Produit Gratuit</h3>
       <div class="price">0€</div>
-      <a href="https://drive.google.com/file/d/1Wa3Jc5gcxKvPfupRYZ_NpjHP9hUVA2Tr/view" target="_blank">Télécharger</a>
+      <a href="https://drive.google.com/uc?export=download&id=1Wa3Jc5gcxKvPfupRYZ_NpjHP9hUVA2Tr" target="_blank" download>Télécharger</a>
     </div>
     <div class="card">
       <h3>Optimisation Gaming</h3>
@@ -371,14 +185,17 @@ body.dark .social{
     <h2>Contact</h2>
     <p>📧 cchougame@icloud.com<br>💬 Discord : chougame</p>
     <div class="socials">
+      <!-- YouTube -->
       <a href="https://www.youtube.com/@chougame" target="_blank" class="social">
-        <svg fill="currentColor" viewBox="0 0 24 24"><path d="M23.5 6.2s-.2-1.7-.8-2.5c..."/></svg>
+        <img src="youtube.svg" alt="YouTube" style="width:28px;height:28px;">
       </a>
+      <!-- Instagram -->
       <a href="https://www.instagram.com/clementc.22/" target="_blank" class="social">
-        <svg fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.2c3.2 0 3.6 0 4.9.1..."/></svg>
+        <img src="instagram.svg" alt="Instagram" style="width:28px;height:28px;">
       </a>
+      <!-- X -->
       <a href="https://x.com/GamChou" target="_blank" class="social">
-        <svg fill="currentColor" viewBox="0 0 24 24"><path d="M23.8 3.2c-.1-.3-.3-.5-.6-.5..."/></svg>
+        <img src="x.svg" alt="X" style="width:28px;height:28px;">
       </a>
     </div>
   </div>
@@ -397,38 +214,35 @@ body.dark .social{
 <script>
 // ---------------- SAKURA ----------------
 const sakura = document.getElementById('sakura');
-for (let i = 0; i < 20; i++) {
+const flowerCount = window.innerWidth <= 768 ? 8 : 20;
+for(let i=0;i<flowerCount;i++){
   const f = document.createElement('img');
   f.src = 'fleur.png';
   f.className = 'flower';
-  f.style.left = Math.random() * 100 + 'vw';
-  f.style.width = 60 + Math.random() * 50 + 'px';
-  f.style.animationDuration = 10 + Math.random() * 15 + 's';
+  f.style.left = Math.random()*100+'vw';
+  f.style.width = (60+Math.random()*50)+'px';
+  f.style.animationDuration = (10+Math.random()*15)+'s';
   sakura.appendChild(f);
 }
 
 // ---------------- DARK MODE MEMORISE ----------------
 const modeSwitch = document.getElementById('modeSwitch');
 const mobileMode = document.getElementById('mobileMode');
+const applyDark = (on) => { document.body.classList.toggle('dark', on); };
+const isDark = localStorage.getItem('darkMode') === 'true';
+applyDark(isDark);
 
-// Vérifie le localStorage au chargement
-if (localStorage.getItem('darkMode') === 'true') {
-  document.body.classList.add('dark');
-}
-
-// Fonction toggle + sauvegarde
 const toggleDark = () => {
   document.body.classList.toggle('dark');
   localStorage.setItem('darkMode', document.body.classList.contains('dark'));
 };
-
 modeSwitch.addEventListener('click', toggleDark);
 mobileMode.addEventListener('click', toggleDark);
 
 // ---------------- MOBILE NAV ACTIVE ----------------
-document.querySelectorAll('.mobile-nav a').forEach(el => {
-  el.onclick = () => {
-    document.querySelectorAll('.mobile-nav a').forEach(i => i.classList.remove('active'));
+document.querySelectorAll('.mobile-nav a').forEach(el=>{
+  el.onclick=()=>{
+    document.querySelectorAll('.mobile-nav a').forEach(i=>i.classList.remove('active'));
     el.classList.add('active');
   }
 });
