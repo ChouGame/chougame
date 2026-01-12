@@ -234,19 +234,19 @@ for (let i = 0; i < 20; i++) {
   sakura.appendChild(f);
 }
 
-// ---------------- HEADER GLOW SAKURA ----------------
+// ---------------- HEADER GLOW SAKURA OPTIMISE ----------------
 const headerGlow = document.getElementById('headerGlow');
-if (window.innerWidth > 768) { // uniquement PC
-  for (let i = 0; i < 15; i++) {
-    const f = document.createElement('img');
-    f.src = 'fleur.png';
-    f.className = 'flower-glow';
-    f.style.left = Math.random() * 100 + 'vw';
-    f.style.width = 50 + Math.random() * 40 + 'px';
-    f.style.animationDuration = 8 + Math.random() * 12 + 's';
-    f.style.animationDelay = Math.random() * 5 + 's';
-    headerGlow.appendChild(f);
-  }
+const isMobile = window.innerWidth <= 768;
+const flowerCount = isMobile ? 8 : 15; // moins de fleurs sur mobile
+for (let i = 0; i < flowerCount; i++) {
+  const f = document.createElement('img');
+  f.src = 'fleur.png';
+  f.className = 'flower-glow';
+  f.style.left = Math.random() * 100 + 'vw';
+  f.style.width = (isMobile ? 30 : 50) + Math.random() * (isMobile ? 20 : 40) + 'px';
+  f.style.animationDuration = 8 + Math.random() * 12 + 's';
+  f.style.animationDelay = Math.random() * 5 + 's';
+  headerGlow.appendChild(f);
 }
 
 // ---------------- DARK MODE ----------------
