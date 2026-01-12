@@ -4,8 +4,11 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>ChouGame – Optimisation Windows</title>
+
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
+
+/* ================= BODY ================= */
 body{
   font-family:'Segoe UI',Arial,sans-serif;
   background:linear-gradient(to bottom,#fff8f0,#f8fafc);
@@ -14,7 +17,7 @@ body{
   overflow-x:hidden;
 }
 
-/* ================= NAV ================= */
+/* ================= DESKTOP NAV ================= */
 nav{
   position:sticky;
   top:0;
@@ -31,6 +34,7 @@ nav{
 .logo-img{height:70px;transition:.3s}
 .logo-img:hover{transform:scale(1.05)}
 body.dark .logo-img{filter:brightness(1.2)}
+
 .nav-links{display:flex;gap:25px;align-items:center;}
 .nav-links a{text-decoration:none;color:#0f172a;font-weight:500;transition:.3s;}
 .nav-links a:hover{color:#f472b6}
@@ -40,104 +44,125 @@ body.dark .logo-img{filter:brightness(1.2)}
 .mobile-logo{display:none}
 @media(max-width:768px){
   nav{display:none}
-  .mobile-logo{display:flex;justify-content:center;padding:25px 0 10px;animation:fadeDown .8s ease;}
-  .mobile-logo img{height:60px;filter:drop-shadow(0 0 18px rgba(255,182,193,.8));}
+  .mobile-logo{
+    display:flex;
+    justify-content:center;
+    padding:25px 0 10px;
+    animation:fadeDown .8s ease;
+  }
+  .mobile-logo img{
+    height:60px;
+    filter:drop-shadow(0 0 18px rgba(255,182,193,.8));
+  }
 }
+
 @keyframes fadeDown{from{opacity:0;transform:translateY(-20px)} to{opacity:1;transform:translateY(0)}}
 
 /* ================= HERO ================= */
 header{text-align:center;padding:90px 20px;}
-header h1{font-size:3em;margin-bottom:20px;}
+header h1{font-size:3em;margin-bottom:20px}
 header p{max-width:700px;margin:auto;font-size:1.2em;opacity:.85;}
-.cta{display:inline-block;margin-top:35px;padding:15px 45px;background:#fbb6ce;color:#000;border-radius:14px;font-weight:bold;text-decoration:none;transition:.3s;}
+.cta{display:inline-block;margin-top:35px;padding:15px 45px;background:#fbb6ce;color:#000;border-radius:14px;font-weight:bold;text-decoration:none;transition:.3s}
 .cta:hover{background:#f472b6}
 
 /* ================= SECTIONS ================= */
 section{max-width:1200px;margin:auto;padding:80px 20px;}
-section h2{text-align:center;font-size:2.2em;margin-bottom:50px;}
+section h2{text-align:center;font-size:2.2em;margin-bottom:50px}
 
 /* ================= PRODUITS ================= */
-.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:30px;}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:30px}
 .card{
+  position:relative; /* pour la fleur dans le coin */
   background:#ffffffdd;
   padding:35px;
   border-radius:30px;
   text-align:center;
   box-shadow:0 15px 40px rgba(0,0,0,.08);
   border:1px solid #ffe4e1;
-  position:relative; /* pour fleur */
   transition:.4s;
 }
-.card a{
-  padding:12px 35px;
-  background:#2563eb;
-  color:white;
-  border-radius:12px;
-  font-weight:bold;
-  text-decoration:none;
-  transition:.3s;
-  display:inline-block;
-}
-.card a:hover{background:#1d4ed8;}
-button.disabled{padding:12px 35px;background:#777;color:white;border:none;border-radius:12px;cursor:not-allowed;}
-.price{font-size:2em;color:#22c55e;margin:20px 0;}
-/* Fleur dans carte téléchargeable */
-.card a::after{
-  content: url('fleur.png');
-  position: absolute;
+.card .corner-flower{
+  position:absolute;
   bottom:10px;
   right:10px;
-  width:50px;
-  opacity:0.6;
-  pointer-events:none;
+  width:60px;
+  opacity:0.7;
 }
-body.dark .card a::after{opacity:0.6;}
+.price{font-size:2em;color:#22c55e;margin:20px 0}
+.card a{padding:12px 35px;background:#2563eb;color:white;border-radius:12px;font-weight:bold;text-decoration:none;transition:.3s}
+.card a:hover{background:#1d4ed8}
+button.disabled{padding:12px 35px;background:#777;color:white;border:none;border-radius:12px;cursor:not-allowed}
 
 /* ================= FEATURES ================= */
-.features{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:30px;}
-.feature{background:white;padding:30px;border-radius:25px;text-align:center;transition:.4s;}
-body.dark .feature{background:#111;border-color:#fbb6ce;}
+.features{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:30px}
+.feature{background:white;padding:30px;border-radius:25px;text-align:center;transition:.4s}
 
 /* ================= CONTACT ================= */
-.contact{background:#eef2ff;border-radius:30px;padding:45px;text-align:center;transition:.4s;}
-body.dark .contact{background:#111;border-color:#fbb6ce;}
+.contact{background:#eef2ff;border-radius:30px;padding:45px;text-align:center;transition:.4s}
 
 /* ================= SOCIALS ================= */
-.socials{margin-top:30px;display:flex;justify-content:center;gap:25px;}
-.social{display:flex;justify-content:center;align-items:center;width:55px;height:55px;border-radius:50%;background:linear-gradient(135deg,#fbb6ce,#f472b6);text-decoration:none;transition:.3s;color:white;}
-.social svg{width:28px;height:28px;fill:currentColor;}
-.social:hover{transform:scale(1.2);box-shadow:0 0 18px #fbb6ce;}
+.socials{margin-top:30px;display:flex;justify-content:center;gap:25px}
+.social{display:flex;justify-content:center;align-items:center;width:55px;height:55px;border-radius:50%;background:linear-gradient(135deg,#fbb6ce,#f472b6);text-decoration:none;transition:.3s;color:white}
+.social svg{width:28px;height:28px;fill:currentColor}
+.social:hover{transform:scale(1.2);box-shadow:0 0 18px #fbb6ce}
 
 /* ================= FOOTER ================= */
-footer{text-align:center;padding:30px;opacity:.6;transition:.4s;}
+footer{text-align:center;padding:30px;opacity:.6;transition:.4s}
+
+/* ================= SAKURA ================= */
+.sakura{position:fixed;inset:0;pointer-events:none;z-index:0}
+.flower{
+  position:absolute;
+  top:-50px;
+  opacity:.7;
+  animation:fall linear infinite;
+}
+@keyframes fall{
+  0%{transform:translateY(-50px) rotate(0deg);opacity:0}
+  10%{opacity:1}
+  100%{transform:translateY(110vh) rotate(360deg);opacity:0}
+}
 
 /* ================= DARK MODE ================= */
-body.dark{background:#000;color:#fff;}
+body.dark{background:#000;color:#fff}
 body.dark nav{background:#111;box-shadow:0 2px 10px rgba(255,182,193,.2);}
 body.dark .nav-links a{color:white;}
 body.dark #modeSwitch{background:#f472b6;color:white;}
 body.dark .mobile-nav{background: rgba(0,0,0,.45);border:1px solid rgba(255,182,193,.4);}
+body.dark .card, body.dark .feature, body.dark .contact{background:#111;border-color:#fbb6ce;}
 body.dark .cta{background:#f472b6;color:white;}
 body.dark .cta:hover{background:#fbb6ce;}
-body.dark .social{color:white;}
+body.dark .social{color:white}
 
 /* ================= MOBILE NAV ================= */
-.mobile-nav{display:none;}
+.mobile-nav{display:none}
 @media(max-width:768px){
   .mobile-nav{
-    position:fixed;bottom:15px;left:50%;transform:translateX(-50%);
-    width:92%;height:75px;display:flex;justify-content:space-around;align-items:center;
-    border-radius:35px;background:rgba(255,255,255,.25);backdrop-filter:blur(25px);
-    box-shadow:0 20px 50px rgba(0,0,0,.35);z-index:999;transition:.4s;
+    position:fixed;
+    bottom:15px;
+    left:50%;
+    transform:translateX(-50%);
+    width:92%;
+    height:75px;
+    display:flex;
+    justify-content:space-around;
+    align-items:center;
+    border-radius:35px;
+    background:rgba(255,255,255,.25);
+    backdrop-filter:blur(25px);
+    box-shadow:0 20px 50px rgba(0,0,0,.35);
+    z-index:999;
+    transition:.4s;
   }
-  .mobile-nav a,.mobile-nav button{font-size:1.7em;background:none;border:none;cursor:pointer;transition:.2s;}
-  .mobile-nav .active{transform:translateY(-6px) scale(1.2);text-shadow:0 0 18px #fbb6ce;}
+  .mobile-nav a,.mobile-nav button{font-size:1.7em;background:none;border:none;cursor:pointer;transition:.2s}
+  .mobile-nav .active{transform:translateY(-6px) scale(1.2);text-shadow:0 0 18px #fbb6ce}
 }
 </style>
 </head>
 <body>
 
 <div class="mobile-logo"><img src="logo.png"></div>
+<div class="sakura" id="sakura"></div>
 
 <nav>
   <img src="logo.png" class="logo-img">
@@ -162,19 +187,20 @@ body.dark .social{color:white;}
     <div class="card">
       <h3>Produit Gratuit</h3>
       <div class="price">0€</div>
-      <a href="https://drive.google.com/uc?export=download&id=1Wa3Jc5gcxKvPfupRYZ_NpjHP9hUVA2Tr" target="_blank" download>
-        Télécharger
-      </a>
+      <a href="https://drive.google.com/file/d/1Wa3Jc5gcxKvPfupRYZ_NpjHP9hUVA2Tr/view" target="_blank">Télécharger</a>
+      <img src="fleur.png" class="corner-flower" alt="">
     </div>
     <div class="card">
       <h3>Optimisation Gaming</h3>
       <div class="price">19€</div>
       <button class="disabled">Non disponible</button>
+      <img src="fleur.png" class="corner-flower" alt="">
     </div>
     <div class="card">
       <h3>Optimisation Complète</h3>
       <div class="price">29€</div>
       <button class="disabled">Non disponible</button>
+      <img src="fleur.png" class="corner-flower" alt="">
     </div>
   </div>
 </section>
@@ -194,14 +220,14 @@ body.dark .social{color:white;}
     <h2>Contact</h2>
     <p>📧 cchougame@icloud.com<br>💬 Discord : chougame</p>
     <div class="socials">
-      <a href="https://www.youtube.com/@chougame" target="_blank" class="social">
-        <svg fill="currentColor" viewBox="0 0 24 24"><path d="M23.498 6.186a3 3 0 0 0-2.117-2.118C19.64 3.5 12 3.5 12 3.5s-7.64 0-9.38.568a3 3 0 0 0-2.118 2.118C0 7.94 0 12 0 12s0 4.06.502 5.814a3 3 0 0 0 2.118 2.118c1.74.568 9.38.568 9.38.568s7.64 0 9.381-.568a3 3 0 0 0 2.117-2.118C24 16.06 24 12 24 12s0-4.06-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+      <a href="https://www.youtube.com/@chougame" target="_blank" class="social" aria-label="YouTube">
+        <svg fill="currentColor" viewBox="0 0 24 24"><path d="M23.498 6.186a2.996 2.996 0 0 0-2.117-2.118C19.64 3.5 12 3.5 12 3.5s-7.64 0-9.38.568a2.996 2.996 0 0 0-2.118 2.118C0 7.94 0 12 0 12s0 4.06.502 5.814a2.996 2.996 0 0 0 2.118 2.118c1.74.568 9.38.568 9.38.568s7.64 0 9.381-.568a2.996 2.996 0 0 0 2.117-2.118C24 16.06 24 12 24 12s0-4.06-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
       </a>
-      <a href="https://www.instagram.com/clementc.22/" target="_blank" class="social">
+      <a href="https://www.instagram.com/clementc.22/" target="_blank" class="social" aria-label="Instagram">
         <svg fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 1.17.054 1.96.24 2.415.403a4.92 4.92 0 0 1 1.794 1.043 4.92 4.92 0 0 1 1.043 1.794c.163.454.35 1.245.403 2.415.058 1.266.07 1.646.07 4.85s-.012 3.584-.07 4.85c-.054 1.17-.24 1.96-.403 2.415a4.92 4.92 0 0 1-1.043 1.794 4.92 4.92 0 0 1-1.794 1.043c-.454.163-1.245.35-2.415.403-1.266.058-1.646.07-4.85.07s-3.584-.012-4.85-.07c-1.17-.054-1.96-.24-2.415-.403a4.92 4.92 0 0 1-1.794-1.043 4.92 4.92 0 0 1-1.043-1.794c-.163-.454-.35-1.245-.403-2.415C2.175 15.584 2.163 15.204 2.163 12s.012-3.584.07-4.85c.054-1.17.24-1.96.403-2.415a4.92 4.92 0 0 1 1.043-1.794 4.92 4.92 0 0 1 1.794-1.043c.454-.163 1.245-.35 2.415-.403C8.416 2.175 8.796 2.163 12 2.163z"/><circle cx="12" cy="12" r="3.2"/><circle cx="18.4" cy="5.6" r="1.44"/></svg>
       </a>
-      <a href="https://x.com/GamChou" target="_blank" class="social">
-        <svg fill="currentColor" viewBox="0 0 24 24"><path d="M23.954 4.569c-.885.392-1.83.656-2.825.775a4.932 4.932 0 0 0 2.163-2.724 9.86 9.86 0 0 1-3.127 1.195 4.916 4.916 0 0 0-8.38 4.482 13.944 13.944 0 0 1-6.232-2.941 4.902 4.902 0 0 0 1.523 6.573 4.903 4.903 0 0 1-2.229-.616c-.054 2.281 1.581 4.415 3.949 4.89a4.935 4.935 0 0 1-2.224.084 4.92 4.92 0 0 0 4.604 3.417 9.867 9.867 0 0 1-6.102 2.104c-.395 0-.787-.023-1.175-.069a13.945 13.945 0 0 0 7.548 2.209c9.058 0 14.01-7.514 14.01-14.01 0-.213-.005-.425-.014-.636A10.025 10.025 0 0 0 24 4.59z"/></svg>
+      <a href="https://x.com/GamChou" target="_blank" class="social" aria-label="X">
+        <svg fill="currentColor" viewBox="0 0 24 24"><path d="M23.954 4.569c-.885.392-1.83.656-2.825.775a4.932 4.932 0 0 0 2.163-2.724 9.86 9.86 0 0 1-3.127 1.195 4.916 4.916 0 0 0-8.38 4.482A13.944 13.944 0 0 1 1.671 3.149a4.902 4.902 0 0 0 1.523 6.573 4.903 4.903 0 0 1-2.229-.616c-.054 2.281 1.581 4.415 3.949 4.89a4.935 4.935 0 0 1-2.224.084 4.92 4.92 0 0 0 4.604 3.417 9.867 9.867 0 0 1-6.102 2.104c-.395 0-.787-.023-1.175-.069a13.945 13.945 0 0 0 7.548 2.209c9.058 0 14.01-7.514 14.01-14.01 0-.213-.005-.425-.014-.636A10.025 10.025 0 0 0 24 4.59z"/></svg>
       </a>
     </div>
   </div>
@@ -218,20 +244,39 @@ body.dark .social{color:white;}
 </div>
 
 <script>
+// ---------------- SAKURA GLOBAL ----------------
+const sakura=document.getElementById('sakura');
+const flowerCount = window.innerWidth <= 768 ? 10 : 20;
+for(let i=0;i<flowerCount;i++){
+  const f=document.createElement('img');
+  f.src='fleur.png';
+  f.className='flower';
+  f.style.left=Math.random()*100+'vw';
+  f.style.width=(40+Math.random()*50)+'px';
+  f.style.animationDuration=(10+Math.random()*15)+'s';
+  f.style.animationDelay=Math.random()*10+'s';
+  sakura.appendChild(f);
+}
+
 // ---------------- DARK MODE MEMORISÉ ----------------
-const modeSwitch=document.getElementById('modeSwitch');
-const mobileMode=document.getElementById('mobileMode');
-function setDarkMode(val){localStorage.setItem('darkMode', val ? 'true' : 'false');}
-function toggleDarkMode(){document.body.classList.toggle('dark');setDarkMode(document.body.classList.contains('dark'));}
-modeSwitch.addEventListener('click', toggleDarkMode);
-mobileMode.addEventListener('click', toggleDarkMode);
-// appliquer à l'ouverture
-if(localStorage.getItem('darkMode')==='true'){document.body.classList.add('dark');}
+const modeSwitch = document.getElementById('modeSwitch');
+const mobileMode = document.getElementById('mobileMode');
+if(localStorage.getItem('darkMode') === 'true') document.body.classList.add('dark');
+const toggleDark = () => {
+  document.body.classList.toggle('dark');
+  localStorage.setItem('darkMode', document.body.classList.contains('dark'));
+}
+modeSwitch.addEventListener('click', toggleDark);
+mobileMode.addEventListener('click', toggleDark);
 
 // ---------------- MOBILE NAV ACTIVE ----------------
 document.querySelectorAll('.mobile-nav a').forEach(el=>{
-  el.onclick=()=>{document.querySelectorAll('.mobile-nav a').forEach(i=>i.classList.remove('active'));el.classList.add('active');}
+  el.onclick=()=>{
+    document.querySelectorAll('.mobile-nav a').forEach(i=>i.classList.remove('active'));
+    el.classList.add('active');
+  }
 });
 </script>
+
 </body>
 </html>
